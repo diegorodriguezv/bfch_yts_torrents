@@ -1,5 +1,5 @@
 import chanutils.torrent
-from chanutils import get_json
+from chanutils import get_json, movie_title_year
 from playitem import TorrentPlayItem, PlayItemList
 
 _SEARCH_URL = 'https://yts.to/api/v2/list_movies.json'
@@ -65,7 +65,8 @@ def _extract(data):
     subtitle = chanutils.torrent.subtitle(size, seeds, peers)
     imdb = "<a target='_blank' href='http://www.imdb.com/title/" + r['imdb_code'] + "/'>IMDB Rating: " + str(r['rating']) + "</a>"
     synopsis  = imdb
-    results.add(TorrentPlayItem(title, img, url, subtitle, synopsis))
+    subs = movie_title_year(title)
+    results.add(TorrentPlayItem(title, img, url, subtitle, synopsis, subs))
   return results
 
 def _smallest_size(torrlist):
