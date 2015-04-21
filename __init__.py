@@ -66,6 +66,7 @@ def _extract(data):
     imdb = "<a target='_blank' href='http://www.imdb.com/title/" + r['imdb_code'] + "/'>IMDB Rating: " + str(r['rating']) + "</a>"
     synopsis  = imdb
     subs = movie_title_year(title)
+    subs['imdb'] = r['imdb_code']
     results.add(TorrentPlayItem(title, img, url, subtitle, synopsis, subs))
   return results
 
