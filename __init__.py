@@ -2,32 +2,32 @@ import chanutils.torrent
 from chanutils import get_json, movie_title_year
 from playitem import TorrentPlayItem, PlayItemList
 
-_SEARCH_URL = 'https://yts.to/api/v2/list_movies.json'
+_SEARCH_URL = 'https://yts.ag/api/v2/list_movies.json'
 
 _FEEDLIST = [
-  {'title':'Latest', 'url':'https://yts.to/api/v2/list_movies.json?limit=50'},
-  {'title':'Highest Rated', 'url':'https://yts.to/api/v2/list_movies.json?sort_by=rating&limit=50'},
-  {'title':'Action', 'url':'https://yts.to/api/v2/list_movies.json?genre=action&sort_by=rating&limit=50'},
-  {'title':'Adventure', 'url':'https://yts.to/api/v2/list_movies.json?genre=adventure&sort_by=rating&limit=50'},
-  {'title':'Animation', 'url':'https://yts.to/api/v2/list_movies.json?genre=animation&sort_by=rating&limit=50'},
-  {'title':'Biography', 'url':'https://yts.to/api/v2/list_movies.json?genre=biography&sort_by=rating&limit=50'},
-  {'title':'Comedy', 'url':'https://yts.to/api/v2/list_movies.json?genre=comedy&sort_by=rating&limit=50'},
-  {'title':'Crime', 'url':'https://yts.to/api/v2/list_movies.json?genre=crime&sort_by=rating&limit=50'},
-  {'title':'Documentary', 'url':'https://yts.to/api/v2/list_movies.json?genre=documentary&sort_by=rating&limit=50'},
-  {'title':'Drama', 'url':'https://yts.to/api/v2/list_movies.json?genre=drama&sort_by=rating&limit=50'},
-  {'title':'Family', 'url':'https://yts.to/api/v2/list_movies.json?genre=family&sort_by=rating&limit=50'},
-  {'title':'Fantasy', 'url':'https://yts.to/api/v2/list_movies.json?genre=fantasy&sort_by=rating&limit=50'},
-  {'title':'Film-Noir', 'url':'https://yts.to/api/v2/list_movies.json?genre=filmnoir&sort_by=rating&limit=50'},
-  {'title':'History', 'url':'https://yts.to/api/v2/list_movies.json?genre=history&sort_by=rating&limit=50'},
-  {'title':'Horror', 'url':'https://yts.to/api/v2/list_movies.json?genre=horror&sort_by=rating&limit=50'},
-  {'title':'Music', 'url':'https://yts.to/api/v2/list_movies.json?genre=music&sort_by=rating&limit=50'},
-  {'title':'Musical', 'url':'https://yts.to/api/v2/list_movies.json?genre=musical&sort_by=rating&limit=50'},
-  {'title':'Mystery', 'url':'https://yts.to/api/v2/list_movies.json?genre=mystery&sort_by=rating&limit=50'},
-  {'title':'Romance', 'url':'https://yts.to/api/v2/list_movies.json?genre=romance&sort_by=rating&limit=50'},
-  {'title':'Sci-Fi', 'url':'https://yts.to/api/v2/list_movies.json?genre=scifi&sort_by=rating&limit=50'},
-  {'title':'Sport', 'url':'https://yts.to/api/v2/list_movies.json?genre=sport&sort_by=rating&limit=50'},
-  {'title':'Thriller', 'url':'https://yts.to/api/v2/list_movies.json?genre=thriller&sort_by=rating&limit=50'},
-  {'title':'War', 'url':'https://yts.to/api/v2/list_movies.json?genre=western&sort_by=rating&limit=50'},
+  {'title':'Latest', 'url':'https://yts.ag/api/v2/list_movies.json?limit=50'},
+  {'title':'Highest Rated', 'url':'https://yts.ag/api/v2/list_movies.json?sort_by=rating&limit=50'},
+  {'title':'Action', 'url':'https://yts.ag/api/v2/list_movies.json?genre=action&sort_by=rating&limit=50'},
+  {'title':'Adventure', 'url':'https://yts.ag/api/v2/list_movies.json?genre=adventure&sort_by=rating&limit=50'},
+  {'title':'Animation', 'url':'https://yts.ag/api/v2/list_movies.json?genre=animation&sort_by=rating&limit=50'},
+  {'title':'Biography', 'url':'https://yts.ag/api/v2/list_movies.json?genre=biography&sort_by=rating&limit=50'},
+  {'title':'Comedy', 'url':'https://yts.ag/api/v2/list_movies.json?genre=comedy&sort_by=rating&limit=50'},
+  {'title':'Crime', 'url':'https://yts.ag/api/v2/list_movies.json?genre=crime&sort_by=rating&limit=50'},
+  {'title':'Documentary', 'url':'https://yts.ag/api/v2/list_movies.json?genre=documentary&sort_by=rating&limit=50'},
+  {'title':'Drama', 'url':'https://yts.ag/api/v2/list_movies.json?genre=drama&sort_by=rating&limit=50'},
+  {'title':'Family', 'url':'https://yts.ag/api/v2/list_movies.json?genre=family&sort_by=rating&limit=50'},
+  {'title':'Fantasy', 'url':'https://yts.ag/api/v2/list_movies.json?genre=fantasy&sort_by=rating&limit=50'},
+  {'title':'Film-Noir', 'url':'https://yts.ag/api/v2/list_movies.json?genre=filmnoir&sort_by=rating&limit=50'},
+  {'title':'History', 'url':'https://yts.ag/api/v2/list_movies.json?genre=history&sort_by=rating&limit=50'},
+  {'title':'Horror', 'url':'https://yts.ag/api/v2/list_movies.json?genre=horror&sort_by=rating&limit=50'},
+  {'title':'Music', 'url':'https://yts.ag/api/v2/list_movies.json?genre=music&sort_by=rating&limit=50'},
+  {'title':'Musical', 'url':'https://yts.ag/api/v2/list_movies.json?genre=musical&sort_by=rating&limit=50'},
+  {'title':'Mystery', 'url':'https://yts.ag/api/v2/list_movies.json?genre=mystery&sort_by=rating&limit=50'},
+  {'title':'Romance', 'url':'https://yts.ag/api/v2/list_movies.json?genre=romance&sort_by=rating&limit=50'},
+  {'title':'Sci-Fi', 'url':'https://yts.ag/api/v2/list_movies.json?genre=scifi&sort_by=rating&limit=50'},
+  {'title':'Sport', 'url':'https://yts.ag/api/v2/list_movies.json?genre=sport&sort_by=rating&limit=50'},
+  {'title':'Thriller', 'url':'https://yts.ag/api/v2/list_movies.json?genre=thriller&sort_by=rating&limit=50'},
+  {'title':'War', 'url':'https://yts.ag/api/v2/list_movies.json?genre=western&sort_by=rating&limit=50'},
 ]
 
 def name():
@@ -37,7 +37,7 @@ def image():
   return 'icon.png'
 
 def description():
-  return "YTS Torrents Channel (<a target='_blank' href='https://yts.to'>https://yts.to</a>)."
+  return "YTS Torrents Channel (<a target='_blank' href='https://yts.ag'>https://yts.ag</a>)."
 
 def feedlist():
   return _FEEDLIST
@@ -55,9 +55,11 @@ def _extract(data):
   rtree = data['data']['movies']
   results = PlayItemList()
   for r in rtree:
+    if 'torrents' not in r:
+      continue
+    torrent = _smallest_size(r['torrents'])
     title = r['title_long']
     img = r['medium_cover_image']
-    torrent = _smallest_size(r['torrents'])
     url = torrent['url']
     size = torrent['size']
     seeds = torrent['seeds']
