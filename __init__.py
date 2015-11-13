@@ -65,7 +65,10 @@ def _extract(data):
     seeds = torrent['seeds']
     peers = torrent['peers']
     subtitle = chanutils.torrent.subtitle(size, seeds, peers)
-    imdb = "<a target='_blank' href='http://www.imdb.com/title/" + r['imdb_code'] + "/'>IMDB Rating: " + str(r['rating']) + "</a>"
+    rating = str(r['rating'])
+    if rating[-1] == '0':
+      rating = rating[:-1]
+    imdb = "<a target='_blank' href='http://www.imdb.com/title/" + r['imdb_code'] + "/'>IMDB Rating: " + rating + "</a>"
     synopsis  = imdb
     subs = movie_title_year(title)
     subs['imdb'] = r['imdb_code']
