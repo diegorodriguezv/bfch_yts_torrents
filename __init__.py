@@ -52,8 +52,10 @@ def search(q):
   return _extract(data)
 
 def _extract(data):
-  rtree = data['data']['movies']
   results = PlayItemList()
+  if 'data' not in data:
+    return results
+  rtree = data['data']['movies']
   for r in rtree:
     if 'torrents' not in r:
       continue
