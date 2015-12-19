@@ -55,6 +55,8 @@ def _extract(data):
   results = PlayItemList()
   if 'data' not in data:
     return results
+  if 'movies' not in data['data']:
+    return results
   rtree = data['data']['movies']
   for r in rtree:
     if 'torrents' not in r:
