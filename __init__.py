@@ -64,6 +64,8 @@ def _extract(data):
     torrent = _smallest_size(r['torrents'])
     title = r['title_long']
     img = r['medium_cover_image']
+    # Proxy
+    img = "https://yts.unblocked.gold" + img[14:]
     url = torrent['url']
     size = torrent['size']
     seeds = torrent['seeds']
