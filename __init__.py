@@ -65,7 +65,7 @@ def _extract(data):
     title = r['title_long']
     img = r['medium_cover_image']
     # Proxy
-    img = "https://yts.unblocked.gold" + img[14:]
+    img = "https://images.weserv.nl/?url=yts.ag" + img[14:]
     url = torrent['url']
     size = torrent['size']
     seeds = torrent['seeds']
